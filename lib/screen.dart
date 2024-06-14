@@ -21,8 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: ListView(
           children: const [
-            itemList(),
-            itemList(),
+            ItemList(),
+            ItemList(),
           ],
         ),
       ),

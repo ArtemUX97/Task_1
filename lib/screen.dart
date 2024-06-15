@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'List/model.dart';
+import 'package:task_1/List/itemList.dart';
+import 'package:task_1/List/model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,11 +20,12 @@ class _HomeScreenState extends State<HomeScreen> {
         decoration: const BoxDecoration(
           color: Color.fromRGBO(246, 247, 248, 1),
         ),
-        child: ListView(
-          children: const [
-            ItemList(),
-            ItemList(),
-          ],
+        child: ListView.builder(
+          cacheExtent: 300,
+          itemCount: coins.length,
+          itemBuilder: (BuildContext context, int index) {
+            return ItemList(index: index);
+          },
         ),
       ),
     );

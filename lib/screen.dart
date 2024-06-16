@@ -22,9 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: ListView.builder(
           cacheExtent: 300,
-          itemCount: coins.length,
+          itemCount: 5,
           itemBuilder: (BuildContext context, int index) {
-            return ItemList(index: index);
+            return ItemList();
           },
         ),
       ),

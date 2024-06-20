@@ -1,15 +1,12 @@
 class CoinsModel {
-  List<Clients>? clients;
+  List<Clients> clients = [];
 
   CoinsModel({required this.clients});
 
   CoinsModel.fromJson(Map<String, dynamic> json) {
-    if (json['clients'] != null) {
-      clients = <Clients>[];
-      json['data'].forEach((v) {
-        clients!.add(new Clients.fromJson(v));
-      });
-    }
+    clients = [
+      for (final clientJson in json['data'] ?? []) Clients.fromJson(clientJson),
+    ];
   }
 
   Map<String, dynamic> toJson() {
@@ -36,16 +33,16 @@ class Clients {
 
   Clients(
       {this.id,
-        this.rank,
-        this.symbol,
-        this.name,
-        this.supply,
-        this.maxSupply,
-        this.marketCapUsd,
-        this.volumeUsd24Hr,
-        this.priceUsd,
-        this.changePercent24Hr,
-        this.vwap24Hr});
+      this.rank,
+      this.symbol,
+      this.name,
+      this.supply,
+      this.maxSupply,
+      this.marketCapUsd,
+      this.volumeUsd24Hr,
+      this.priceUsd,
+      this.changePercent24Hr,
+      this.vwap24Hr});
 
   Clients.fromJson(Map<String, dynamic> json) {
     id = json['id'];

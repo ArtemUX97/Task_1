@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_1/List/itemList.dart';
 import 'package:task_1/List/model.dart';
+import 'List/repository.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,6 +11,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  CoinsModel coins = CoinsModel(clients: []);
+
+  @override
+  void initState() {
+    super.initState();
+
+    ApiServices().getCoinsModel().then(
+          (value) => setState(() => coins = value ?? coins),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +35,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: ListView.builder(
           cacheExtent: 300,
-          itemCount: 5,
+          itemCount: coins.clients.length,
           itemBuilder: (BuildContext context, int index) {
-            return ItemList();
+            final client = coins.clients[index];
+            return ItemList(client: client);
           },
         ),
       ),

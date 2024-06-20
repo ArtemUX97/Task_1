@@ -9,10 +9,11 @@ class ApiServices {
 
       if (response.statusCode == 200){
         CoinsModel model = CoinsModel.fromJson(json.decode(response.body));
+        // log('res model: ${model.clients.toString()}');
         return model;
       }
     } catch (e){
-      // print(e.toString());
+      print(e.toString());
     }
     return null;
   }

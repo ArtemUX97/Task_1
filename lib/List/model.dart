@@ -1,30 +1,27 @@
-// class CoinsModel {
-//   List<Data>? data;
-//   int? timestamp;
-//
-//   CoinsModel({this.data, this.timestamp});
-//
-//   CoinsModel.fromJson(Map<String, dynamic> json) {
-//     if (json['data'] != null) {
-//       data = <Data>[];
-//       json['data'].forEach((v) {
-//         data!.add(new Data.fromJson(v));
-//       });
-//     }
-//     timestamp = json['timestamp'];
-//   }
-//
-//   Map<String, dynamic> toJson() {
-//     final Map<String, dynamic> data = new Map<String, dynamic>();
-//     if (this.data != null) {
-//       data['data'] = this.data!.map((v) => v.toJson()).toList();
-//     }
-//     data['timestamp'] = this.timestamp;
-//     return data;
-//   }
-// }
-
 class CoinsModel {
+  List<Clients>? clients;
+
+  CoinsModel({required this.clients});
+
+  CoinsModel.fromJson(Map<String, dynamic> json) {
+    if (json['clients'] != null) {
+      clients = <Clients>[];
+      json['data'].forEach((v) {
+        clients!.add(new Clients.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.clients != null) {
+      data['clients'] = this.clients!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class Clients {
   String? id;
   String? rank;
   String? symbol;
@@ -37,7 +34,7 @@ class CoinsModel {
   String? changePercent24Hr;
   String? vwap24Hr;
 
-  CoinsModel(
+  Clients(
       {this.id,
         this.rank,
         this.symbol,
@@ -50,7 +47,7 @@ class CoinsModel {
         this.changePercent24Hr,
         this.vwap24Hr});
 
-  CoinsModel.fromJson(Map<String, dynamic> json) {
+  Clients.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     rank = json['rank'];
     symbol = json['symbol'];

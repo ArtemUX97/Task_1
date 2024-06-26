@@ -12,7 +12,7 @@ class ApiServices {
         // log('res model: ${model.clients.toString()}');
         return model;
       }
-    } catch (e){
+    } catch (e) {
       print(e.toString());
     }
     return null;

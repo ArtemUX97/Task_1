@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:task_1/List/model.dart';
+import 'model.dart';
 
 class ItemList extends StatelessWidget {
-  final Clients client;
+  final Clients clients;
 
-  const ItemList({super.key, required this.client});
+  const ItemList({super.key, required this.clients});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,6 @@ class ItemList extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       child: Container(
-        width: double.infinity,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
@@ -34,14 +33,14 @@ class ItemList extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    client.symbol.toString(),
+                    clients.symbol.toString(),
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    client.id.toString(),
+                    clients.id.toString(),
                     style: const TextStyle(
                       color: Colors.grey,
                     ),
@@ -50,7 +49,7 @@ class ItemList extends StatelessWidget {
               ),
               const Spacer(),
               Text(
-                client.priceUsd.toString(),
+                clients.priceUsd.toString(),
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ],

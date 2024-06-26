@@ -1,24 +1,24 @@
-class CoinsModel {
-  List<Clients> clients = [];
+// class Clients {
+//   List<Clients> clients = [];
+//
+//   CoinsModel({required this.clients});
+//
+//   CoinsModel.fromJson(Map<String, dynamic> json) {
+//     clients = [
+//       for (final clientJson in json['data'] ?? []) Clients.fromJson(clientJson),
+//     ];
+//   }
+//
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = new Map<String, dynamic>();
+//     if (this.clients != null) {
+//       data['clients'] = this.clients!.map((v) => v.toJson()).toList();
+//     }
+//     return data;
+//   }
+// }
 
-  CoinsModel({required this.clients});
-
-  CoinsModel.fromJson(Map<String, dynamic> json) {
-    clients = [
-      for (final clientJson in json['data'] ?? []) Clients.fromJson(clientJson),
-    ];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.clients != null) {
-      data['clients'] = this.clients!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
-
-class Clients {
+  class Clients {
   String? id;
   String? rank;
   String? symbol;
@@ -32,45 +32,45 @@ class Clients {
   String? vwap24Hr;
 
   Clients(
-      {this.id,
-        this.rank,
-        this.symbol,
-        this.name,
-        this.supply,
-        this.maxSupply,
-        this.marketCapUsd,
-        this.volumeUsd24Hr,
-        this.priceUsd,
-        this.changePercent24Hr,
-        this.vwap24Hr});
+  {this.id,
+  this.rank,
+  this.symbol,
+  this.name,
+  this.supply,
+  this.maxSupply,
+  this.marketCapUsd,
+  this.volumeUsd24Hr,
+  this.priceUsd,
+  this.changePercent24Hr,
+  this.vwap24Hr});
 
   Clients.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    rank = json['rank'];
-    symbol = json['symbol'];
-    name = json['name'];
-    supply = json['supply'];
-    maxSupply = json['maxSupply'];
-    marketCapUsd = json['marketCapUsd'];
-    volumeUsd24Hr = json['volumeUsd24Hr'];
-    priceUsd = json['priceUsd'];
-    changePercent24Hr = json['changePercent24Hr'];
-    vwap24Hr = json['vwap24Hr'];
+  id = json['id'];
+  rank = json['rank'];
+  symbol = json['symbol'];
+  name = json['name'];
+  supply = json['supply'];
+  maxSupply = json['maxSupply'];
+  marketCapUsd = json['marketCapUsd'];
+  volumeUsd24Hr = json['volumeUsd24Hr'];
+  priceUsd = json['priceUsd'];
+  changePercent24Hr = json['changePercent24Hr'];
+  vwap24Hr = json['vwap24Hr'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['rank'] = this.rank;
-    data['symbol'] = this.symbol;
-    data['name'] = this.name;
-    data['supply'] = this.supply;
-    data['maxSupply'] = this.maxSupply;
-    data['marketCapUsd'] = this.marketCapUsd;
-    data['volumeUsd24Hr'] = this.volumeUsd24Hr;
-    data['priceUsd'] = this.priceUsd;
-    data['changePercent24Hr'] = this.changePercent24Hr;
-    data['vwap24Hr'] = this.vwap24Hr;
-    return data;
+  final Map<String, dynamic> data = new Map<String, dynamic>();
+  data['id'] = this.id;
+  data['rank'] = this.rank;
+  data['symbol'] = this.symbol;
+  data['name'] = this.name;
+  data['supply'] = this.supply;
+  data['maxSupply'] = this.maxSupply;
+  data['marketCapUsd'] = this.marketCapUsd;
+  data['volumeUsd24Hr'] = this.volumeUsd24Hr;
+  data['priceUsd'] = this.priceUsd;
+  data['changePercent24Hr'] = this.changePercent24Hr;
+  data['vwap24Hr'] = this.vwap24Hr;
+  return data;
   }
-}
+  }

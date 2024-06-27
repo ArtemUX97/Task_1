@@ -1,4 +1,4 @@
-class Client {
+class Coin {
   String? id;
   String? rank;
   String? symbol;
@@ -11,7 +11,7 @@ class Client {
   String? changePercent24Hr;
   String? vwap24Hr;
 
-  Client({
+  Coin({
     this.id,
     this.rank,
     this.symbol,
@@ -25,7 +25,7 @@ class Client {
     this.vwap24Hr,
   });
 
-  Client.fromJson(Map<String, dynamic> json) {
+  Coin.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     rank = json['rank'];
     symbol = json['symbol'];

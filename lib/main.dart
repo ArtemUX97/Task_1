@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:task_1/List/controller.dart';
 import 'package:task_1/screen.dart';
-import 'package:provider/provider.dart';
 
 void main() => runApp(
       ChangeNotifierProvider(
-        create: (context) => CoinsNotifier(),
+        create: (context) => CoinsNotifier()..init(),
         child: const MyApp(),
       ),
     );

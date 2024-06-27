@@ -2,21 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:task_1/List/model.dart';
 import 'package:task_1/List/repository.dart';
 
-
-class CoinsNotifier extends ChangeNotifier{
+class CoinsNotifier extends ChangeNotifier {
   bool isLoading = false;
 
-  List<Client> _coins = [];
-  List<Client> get clients => _coins;
+  List<Coin> _coins = [];
+  List<Coin> get clients => _coins;
 
-  Future<Client?> getClientCoin() async {
+  void init() async {
     isLoading = true;
     notifyListeners();
 
-    final response = await ApiServices().getClient();
+    _coins = await getClientCoin();
 
-    _coins = response as List<Client>;
     isLoading = false;
     notifyListeners();
+  }
+
+  Future<List<Coin>> getClientCoin() async {
+    final response = await ApiServices().getCoins();
+
+    return response;
   }
 }

@@ -1,26 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'List/itemList.dart';
-import 'List/controller.dart';
 
-class HomeScreen extends StatefulWidget {
+import 'List/controller.dart';
+import 'List/itemList.dart';
+
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  // CoinsModel coins = CoinsModel(clients: []);
-  //
-  // @override
-  // void initState() {
-  //   super.initState();
-  //
-  //   ApiServices().getCoinsModel().then(
-  //         (value) => setState(() => coins = value ?? coins),
-  //       );
-  // }
   Future _refresh() {
     return Future.delayed(const Duration(seconds: 2));
   }
@@ -29,7 +15,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final coinsNotifier = Provider.of<CoinsNotifier>(context);
     final coins = coinsNotifier.clients;
-    // var isLoaded = false;
 
     return Scaffold(
       appBar: AppBar(

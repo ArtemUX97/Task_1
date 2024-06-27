@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:task_1/List/model.dart';
 
 class ItemList extends StatelessWidget {
-  final Client clients;
+  final Coin clients;
 
   const ItemList({super.key, required this.clients});
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       child: Container(
@@ -50,7 +49,8 @@ class ItemList extends StatelessWidget {
               const Spacer(),
               Text(
                 clients.priceUsd.toString(),
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
             ],
           ),

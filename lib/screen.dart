@@ -8,6 +8,8 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   Future _refresh() {
+    // todo(27.06.2024): этот метод ничего не делает
+    // а он должен вызвать метод обновления состояния в нотифаере
     return Future.delayed(const Duration(seconds: 2));
   }
 

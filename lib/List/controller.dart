@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
-import 'model.dart';
+import 'package:task_1/List/model.dart';
+import 'package:task_1/List/repository.dart';
+
 
 class CoinsNotifier extends ChangeNotifier{
+  bool isLoading = false;
 
-  final List<Clients> _coins = [];
-  List<Clients> get coins => _coins;
+  List<Client> _coins = [];
+  List<Client> get clients => _coins;
 
-  void listenState() {
-    _coins;
+  Future<Client?> getClientCoin() async {
+    isLoading = true;
+    notifyListeners();
+
+    final response = await ApiServices().getClient();
+
+    _coins = response as List<Client>;
+    isLoading = false;
     notifyListeners();
   }
 }

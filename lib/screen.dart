@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'List/itemList.dart';
 import 'List/controller.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,11 +21,15 @@ class _HomeScreenState extends State<HomeScreen> {
   //         (value) => setState(() => coins = value ?? coins),
   //       );
   // }
+  Future _refresh() {
+    return Future.delayed(const Duration(seconds: 2));
+  }
 
   @override
   Widget build(BuildContext context) {
     final coinsNotifier = Provider.of<CoinsNotifier>(context);
-    final coins = coinsNotifier.coins;
+    final coins = coinsNotifier.clients;
+    // var isLoaded = false;
 
     return Scaffold(
       appBar: AppBar(
@@ -35,19 +39,22 @@ class _HomeScreenState extends State<HomeScreen> {
         decoration: const BoxDecoration(
           color: Color.fromRGBO(246, 247, 248, 1),
         ),
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                cacheExtent: 300,
-                itemCount: coins.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final client = coins[index];
-                  return ItemList(clients: client);
-                },
+        child: RefreshIndicator(
+          onRefresh: _refresh,
+          child: Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  cacheExtent: 300,
+                  itemCount: coins.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    final client = coins[index];
+                    return ItemList(clients: client);
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -1,11 +1,11 @@
 // class Clients {
-//   List<Clients> clients = [];
+//   List<Client> clients = [];
 //
-//   CoinsModel({required this.clients});
+//   Clients({required this.clients});
 //
-//   CoinsModel.fromJson(Map<String, dynamic> json) {
+//   Clients.fromJson(Map<String, dynamic> json) {
 //     clients = [
-//       for (final clientJson in json['data'] ?? []) Clients.fromJson(clientJson),
+//       for (final clientJson in json['data'] ?? []) Client.fromJson(clientJson),
 //     ];
 //   }
 //
@@ -18,7 +18,7 @@
 //   }
 // }
 
-  class Clients {
+  class Client {
   String? id;
   String? rank;
   String? symbol;
@@ -31,7 +31,7 @@
   String? changePercent24Hr;
   String? vwap24Hr;
 
-  Clients(
+  Client(
   {this.id,
   this.rank,
   this.symbol,
@@ -44,7 +44,7 @@
   this.changePercent24Hr,
   this.vwap24Hr});
 
-  Clients.fromJson(Map<String, dynamic> json) {
+  Client.fromJson(Map<String, dynamic> json) {
   id = json['id'];
   rank = json['rank'];
   symbol = json['symbol'];

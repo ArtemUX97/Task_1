@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'model.dart';
+import 'package:task_1/List/model.dart';
 
 class ItemList extends StatelessWidget {
-  final Clients clients;
+  final Client clients;
 
   const ItemList({super.key, required this.clients});
 

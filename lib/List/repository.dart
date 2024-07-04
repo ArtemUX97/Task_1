@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:task_1/List/model.dart';
@@ -18,7 +19,8 @@ class ApiServices {
         return coins;
       }
     } catch (e) {
-      print(e.toString());
+      log(e.toString());
+      rethrow;
     }
     return [];
   }

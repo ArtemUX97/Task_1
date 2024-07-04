@@ -16,7 +16,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final coinsNotifier = Provider.of<CoinsNotifier>(context);
-    final coins = coinsNotifier.clients;
+
+    // todo(04.07.2024): обработать состояния coinsNotifier через switch case или switch-выражение
+    // дата - экран с данными
+    // загрузка - виджет-лоадер
+    // ошибка - экран ошибки
+    final coins = coinsNotifier.value;
 
     return Scaffold(
       appBar: AppBar(

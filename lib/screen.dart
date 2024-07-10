@@ -7,21 +7,25 @@ import 'List/itemList.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  Future _refresh() {
-    // todo(27.06.2024): этот метод ничего не делает
-    // а он должен вызвать метод обновления состояния в нотифаере
-    return Future.delayed(const Duration(seconds: 2));
+
+  Future _refresh(BuildContext context) async{
+    return Provider.of<CoinsNotifier>(context, listen: false).init();
   }
 
   @override
   Widget build(BuildContext context) {
-    final coinsNotifier = Provider.of<CoinsNotifier>(context);
 
-    // todo(04.07.2024): обработать состояния coinsNotifier через switch case или switch-выражение
-    // дата - экран с данными
-    // загрузка - виджет-лоадер
-    // ошибка - экран ошибки
-    final coins = coinsNotifier.value;
+    final coinsNotifier = Provider.of<CoinsNotifier>(context);
+    final coinsS = coinsNotifier.value;
+
+    void mainCoins(CoinsState coinsState) {
+      final msg = switch (coinsState) {
+        CoinsLoadingState() => RefreshIndicator,
+        CoinsDataState(coins: var coins) => 'Data',
+        CoinsErrorState(message: var message) => 'Error',
+      };
+      print(msg);
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -31,23 +35,23 @@ class HomeScreen extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Color.fromRGBO(246, 247, 248, 1),
         ),
-        child: RefreshIndicator(
-          onRefresh: _refresh,
-          child: Column(
-            children: [
-              Expanded(
-                child: ListView.builder(
-                  cacheExtent: 300,
-                  itemCount: coins.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final client = coins[index];
-                    return ItemList(clients: client);
-                  },
+          child: RefreshIndicator(
+            onRefresh: _refresh,
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    cacheExtent: 300,
+                    itemCount: coinsS.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final client = coinsS[index];
+                      return ItemList(clients: client);
+                    },
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
       ),
     );
   }

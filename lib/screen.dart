@@ -9,20 +9,20 @@ class HomeScreen extends StatelessWidget {
 
 
   Future _refresh(BuildContext context) async{
-    return Provider.of<CoinsNotifier>(context).init();
+    return Provider.of<CoinsNotifier>(context, listen: false).init();
   }
 
   @override
   Widget build(BuildContext context) {
 
     final coinsNotifier = Provider.of<CoinsNotifier>(context);
-    final coinsState = coinsNotifier.value;
+    final coinsS = coinsNotifier.value;
 
     void mainCoins(CoinsState coinsState) {
       final msg = switch (coinsState) {
-        CoinsLoadingState() => 'Loading',
-        CoinsDataState() => 'Data',
-        CoinsErrorState() => 'Error',
+        CoinsLoadingState() => RefreshIndicator,
+        CoinsDataState(coins: var coins) => 'Data',
+        CoinsErrorState(message: var message) => 'Error',
       };
       print(msg);
     }
@@ -36,15 +36,15 @@ class HomeScreen extends StatelessWidget {
           color: Color.fromRGBO(246, 247, 248, 1),
         ),
           child: RefreshIndicator(
-            onRefresh: ()  => _refresh(context),
+            onRefresh: _refresh,
             child: Column(
               children: [
                 Expanded(
                   child: ListView.builder(
                     cacheExtent: 300,
-                    itemCount: coinsState.coins.length,
+                    itemCount: coinsS.length,
                     itemBuilder: (BuildContext context, int index) {
-                      final client = coinsState.coins[index];
+                      final client = coinsS[index];
                       return ItemList(clients: client);
                     },
                   ),

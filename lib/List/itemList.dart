@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:task_1/List/model.dart';
 
 class ItemList extends StatelessWidget {
-  final Coin clients;
+  final Coin coin;
 
-  const ItemList({super.key, required this.clients});
+  const ItemList({super.key, required this.coin});
 
   @override
   Widget build(BuildContext context) {
@@ -32,14 +32,14 @@ class ItemList extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    clients.symbol.toString(),
+                    coin.symbol.toString(),
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    clients.id.toString(),
+                    coin.id.toString(),
                     style: const TextStyle(
                       color: Colors.grey,
                     ),
@@ -48,7 +48,7 @@ class ItemList extends StatelessWidget {
               ),
               const Spacer(),
               Text(
-                clients.priceUsd.toString(),
+                coin.priceUsd.toString(),
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),

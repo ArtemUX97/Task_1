@@ -19,7 +19,7 @@ class CoinsErrorState extends CoinsState {
 class CoinsNotifier extends ValueNotifier<CoinsState> {
   CoinsNotifier() : super(CoinsLoadingState());
 
-  void init() async {
+  Future<void> init() async {
     try {
       final result = await _fetchCoins();
       value = CoinsDataState(result);
@@ -31,12 +31,21 @@ class CoinsNotifier extends ValueNotifier<CoinsState> {
   Future<List<Coin>> _fetchCoins() async {
     return await ApiServices().getCoins();
   }
+
+  Future<void> refresh() async {
+    value = CoinsLoadingState();
+    await init();
+  }
 }
 
-/// Todo
+/// Todo(artemizaak):
 /// - детально просмотреть, как шаг за шагом работают все вызовы. Это можно узнать
 /// с помощью логирования (log или print)
 /// - немного освоить графический git в AS
-/// - ✅ подумать над тем, как связать isLoading с виджетами (теперь у нас состояния)
-/// - разобраться с _refresh, который не вызывает обновления на самом деле
-/// - ✅ посмотреть на sealed классы и подумать над организацией состояний данные/загрузка/ошибка
+
+/// todo(artemizaak, 11.07.2024):
+/// - внедрить пагинацию (посмотри также, что такое моковые данные, чтобы не
+/// получить запрет от сервера на количество запросов)
+/// - выбрать любой другой апи с сайта, получить и отобразить данные на новой странице
+/// - улучшить отображение значения стоимости, когда экран узок
+/// - добавить текстовый заголовок в Appbar

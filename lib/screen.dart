@@ -1,58 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:task_1/List/itemList.dart';
 
 import 'List/controller.dart';
-import 'List/itemList.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-
-  Future _refresh(BuildContext context) async{
-    return Provider.of<CoinsNotifier>(context).init();
-  }
-
   @override
   Widget build(BuildContext context) {
-
     final coinsNotifier = Provider.of<CoinsNotifier>(context);
     final coinsState = coinsNotifier.value;
 
-    void mainCoins(CoinsState coinsState) {
-      final msg = switch (coinsState) {
-        CoinsLoadingState() => 'Loading',
-        CoinsDataState() => 'Data',
-        CoinsErrorState() => 'Error',
-      };
-      print(msg);
-    }
-
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(246, 247, 248, 1),
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(246, 247, 248, 1),
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          color: Color.fromRGBO(246, 247, 248, 1),
-        ),
-          child: RefreshIndicator(
-            onRefresh: ()  => _refresh(context),
-            child: Column(
-              children: [
-                Expanded(
+      body: switch (coinsState) {
+        CoinsDataState(:final coins) => Column(
+            children: [
+              Expanded(
+                child: RefreshIndicator(
+                  onRefresh: coinsNotifier.refresh,
                   child: ListView.builder(
                     cacheExtent: 300,
-                    itemCount: coinsState.coins.length,
+                    itemCount: coins.length,
                     itemBuilder: (BuildContext context, int index) {
-                      final client = coinsState.coins[index];
-                      return ItemList(clients: client);
+                      final coin = coins[index];
+                      return ItemList(coin: coin);
                     },
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-      ),
+        CoinsLoadingState() => const Center(child: CircularProgressIndicator()),
+        CoinsErrorState() => const Center(child: Text('Прозошла ошибка')),
+      },
     );
   }
 }

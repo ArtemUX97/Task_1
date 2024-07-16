@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:http/http.dart' as http;
-import 'package:task_1/List/model.dart';
+import 'package:task_1/firstPage/model.dart';
 
 class ApiServices {
   Future<List<Coin>> getCoins() async {

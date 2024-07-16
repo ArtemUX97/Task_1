@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:task_1/List/controller.dart';
-import 'package:task_1/screen.dart';
+import 'package:task_1/firstPage/controller.dart';
+import 'homePage.dart';
 
 void main() => runApp(
       ChangeNotifierProvider(
@@ -18,12 +18,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromRGBO(246, 247, 248, 1),
-        ),
-        useMaterial3: true,
+        colorSchemeSeed: Colors.white,
       ),
-      home: const HomeScreen(),
+      home: const HomePage(),
     );
   }
 }
+
+

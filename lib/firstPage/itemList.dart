@@ -48,7 +48,7 @@ class ItemList extends StatelessWidget {
               ),
               const Spacer(),
               Text(
-                clients.priceUsd.toString(),
+                double.tryParse(coin.priceUsd ?? 'null')?.toStringAsFixed(2) ?? 'null',
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),

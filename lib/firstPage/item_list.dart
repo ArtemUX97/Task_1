@@ -23,24 +23,23 @@ class ItemList extends StatelessWidget {
           ],
         ),
         child: Padding(
-          padding:
-              const EdgeInsets.only(left: 8, top: 16, right: 20, bottom: 16),
+          padding: const EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 16),
           child: Row(
             children: [
-              const SizedBox(width: 16),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     coin.symbol.toString(),
                     style: const TextStyle(
-                      fontSize: 16,
+                      fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
                     coin.id.toString(),
                     style: const TextStyle(
+                      fontSize: 12,
                       color: Colors.grey,
                     ),
                   ),
@@ -50,7 +49,7 @@ class ItemList extends StatelessWidget {
               Text(
                 double.tryParse(coin.priceUsd ?? 'null')?.toStringAsFixed(2) ?? 'null',
                 style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
             ],
           ),

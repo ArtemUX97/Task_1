@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:task_1/secondPage/screenSecond.dart';
+import 'package:task_1/firstPage/repository.dart';
+import 'package:task_1/secondPage/screen_second.dart';
 
-import 'firstPage/screenFirst.dart';
+import 'firstPage/screen_first.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,9 +22,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("ApiServices"),
-      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
@@ -31,11 +29,11 @@ class _HomePageState extends State<HomePage> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Страница 1',
+            label: 'ScreenFirst',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Страница 2',
+            label: 'ScreenSecond',
           ),
         ],
       ),

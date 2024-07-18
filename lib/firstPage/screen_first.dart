@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:task_1/firstPage/screenFirst.dart';
-import 'package:task_1/secondPage/screenSecond.dart';
-
 import 'controller.dart';
-import 'itemList.dart';
+import 'item_list.dart';
 
 class ScreenFirst extends StatefulWidget {
   const ScreenFirst({super.key});
@@ -22,7 +19,9 @@ class _HomeScreenState extends State<ScreenFirst> {
     final coinsState = coinsNotifier.value;
 
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(246, 247, 248, 1),
+      appBar: AppBar(
+        title: const Text("ScreenFirst"),
+      ),
       body: switch (coinsState) {
           CoinsDataState(:final coins) => Column(
               children: [

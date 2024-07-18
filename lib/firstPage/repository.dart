@@ -15,7 +15,6 @@ class ApiServices {
           for (final clientJson in json.decode(response.body)?['data'] ?? [])
             Coin.fromJson(clientJson),
         ];
-        // log('res model: ${model.clients.toString()}');
         return coins;
       }
     } catch (e) {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:task_1/firstPage/repository.dart';
 import 'package:task_1/secondPage/screen_second.dart';
 
 import 'firstPage/screen_first.dart';
@@ -16,7 +15,7 @@ class _HomePageState extends State<HomePage> {
 
   final screens = [
     const ScreenFirst(),
-    const ScreenSecond(),
+    ScreenSecond(),
   ];
 
   @override

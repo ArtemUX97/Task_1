@@ -12,37 +12,38 @@ class ScreenFirst extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<ScreenFirst> {
-
   @override
   Widget build(BuildContext context) {
     final coinsNotifier = Provider.of<CoinsNotifier>(context);
     final coinsState = coinsNotifier.value;
+
+    print('ScreenFirst build');
 
     return Scaffold(
       appBar: AppBar(
         title: const Text("ScreenFirst"),
       ),
       body: switch (coinsState) {
-          CoinsDataState(:final coins) => Column(
-              children: [
-                Expanded(
-                  child: RefreshIndicator(
-                    onRefresh: coinsNotifier.refresh,
-                    child: ListView.builder(
-                      cacheExtent: 300,
-                      itemCount: coins.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final coin = coins[index];
-                        return ItemList(coin: coin);
-                      },
-                    ),
+        CoinsDataState(:final coins) => Column(
+            children: [
+              Expanded(
+                child: RefreshIndicator(
+                  onRefresh: coinsNotifier.refresh,
+                  child: ListView.builder(
+                    cacheExtent: 300,
+                    itemCount: coins.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final coin = coins[index];
+                      return ItemList(coin: coin);
+                    },
                   ),
                 ),
-              ],
-            ),
-          CoinsLoadingState() => const Center(child: CircularProgressIndicator()),
-          CoinsErrorState() => const Center(child: Text('Error')),
-        },
+              ),
+            ],
+          ),
+        CoinsLoadingState() => const Center(child: CircularProgressIndicator()),
+        CoinsErrorState() => const Center(child: Text('Error')),
+      },
     );
   }
 }

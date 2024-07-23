@@ -1,30 +1,27 @@
 class Options {
-  String? open;
-  String? high;
-  String? low;
-  String? close;
-  String? volume;
-  int? period;
+  String? id;
+  String? symbol;
+  String? currencySymbol;
+  String? type;
+  String? rateUsd;
 
-  Options({this.open, this.high, this.low, this.close, this.volume, this.period});
+  Options({this.id, this.symbol, this.currencySymbol, this.type, this.rateUsd});
 
   Options.fromJson(Map<String, dynamic> json) {
-    open = json['open'];
-    high = json['high'];
-    low = json['low'];
-    close = json['close'];
-    volume = json['volume'];
-    period = json['period'];
+    id = json['id'];
+    symbol = json['symbol'];
+    currencySymbol = json['currencySymbol'];
+    type = json['type'];
+    rateUsd = json['rateUsd'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['open'] = open;
-    data['high'] = high;
-    data['low'] = low;
-    data['close'] = close;
-    data['volume'] = volume;
-    data['period'] = period;
+    data['id'] = id;
+    data['symbol'] = symbol;
+    data['currencySymbol'] = currencySymbol;
+    data['type'] = type;
+    data['rateUsd'] = rateUsd;
     return data;
   }
 }

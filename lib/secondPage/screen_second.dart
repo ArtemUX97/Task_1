@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +17,6 @@ class ScreenSecond extends StatefulWidget {
 }
 
 class _ScreenSecondState extends State<ScreenSecond> {
-
   @override
   Widget build(BuildContext context) {
     final optionsNotifier = Provider.of<OptionsNotifier>(context);
@@ -44,7 +45,8 @@ class _ScreenSecondState extends State<ScreenSecond> {
               ),
             ],
           ),
-        OptionsLoadingState() => const Center(child: CircularProgressIndicator()),
+        OptionsLoadingState() =>
+          const Center(child: CircularProgressIndicator()),
         OptionsErrorState() => const Center(child: Text('Error')),
       },
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_1/secondPage/model.dart';
+import 'package:task_1/second_page/model.dart';
 
 class ItemListSecond extends StatelessWidget {
   final Options options;

@@ -2,19 +2,20 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:http/http.dart' as http;
-import 'package:task_1/secondPage/model.dart';
+import 'package:task_1/first_page/model.dart';
 
-class ApiServicesSecond {
-  Future<List<Options>> getOptions() async {
+class ApiServices {
+  Future<List<Coin>> getCoins() async {
     try {
-      var response = await http.get(Uri.parse('http://api.coincap.io/v2/rates'));
+      var response =
+          await http.get(Uri.parse('http://api.coincap.io/v2/assets'));
 
       if (response.statusCode == 200) {
-        final option = [
+        final coins = [
           for (final clientJson in json.decode(response.body)?['data'] ?? [])
-            Options.fromJson(clientJson),
+            Coin.fromJson(clientJson),
         ];
-        return option;
+        return coins;
       }
     } catch (e) {
       log(e.toString());

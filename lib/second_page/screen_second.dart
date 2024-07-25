@@ -1,13 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 
 import 'controller.dart';
 import 'item_list.dart';
 
-final logger = Logger();
 
 class ScreenSecond extends StatefulWidget {
   const ScreenSecond({super.key});
@@ -37,7 +33,6 @@ class _ScreenSecondState extends State<ScreenSecond> {
                     itemCount: options.length,
                     itemBuilder: (BuildContext context, int index) {
                       final option = options[index];
-                      // logger.d('Option $index: ${option.toJson()}');
                       return ItemListSecond(options: option);
                     },
                   ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:task_1/firstPage/model.dart';
-import 'package:task_1/firstPage/repository.dart';
+import 'package:task_1/first_page/model.dart';
+import 'package:task_1/first_page/repository.dart';
 
 sealed class CoinsState {}
 

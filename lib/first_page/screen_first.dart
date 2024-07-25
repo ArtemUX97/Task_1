@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,11 +18,15 @@ class _HomeScreenState extends State<ScreenFirst> {
     final coinsNotifier = Provider.of<CoinsNotifier>(context);
     final coinsState = coinsNotifier.value;
 
-    print('ScreenFirst build');
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("ScreenFirst"),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.search),
+          ),
+        ],
       ),
       body: switch (coinsState) {
         CoinsDataState(:final coins) => Column(

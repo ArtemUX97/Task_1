@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_1/secondPage/model.dart';
+import 'package:task_1/second_page/model.dart';
 
 class ItemListSecond extends StatelessWidget {
   final Options options;
@@ -32,10 +32,10 @@ class ItemListSecond extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const Text('Open'),
+                      const Text('Number'),
                       const Spacer(),
                       Text(
-                        options.open.toString(),
+                        options.id.toString(),
                         style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -46,10 +46,10 @@ class ItemListSecond extends StatelessWidget {
                   const SizedBox(height: 8),
                   Row(
                     children: [
-                      const Text('Close'),
+                      const Text('Name'),
                       const Spacer(),
                       Text(
-                        options.close.toString(),
+                        options.symbol.toString(),
                         style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -68,10 +68,10 @@ class ItemListSecond extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const Text('High'),
+                      const Text('Currency Symbol'),
                       const Spacer(),
                       Text(
-                        options.high.toString(),
+                        options.currencySymbol.toString(),
                         style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -82,10 +82,10 @@ class ItemListSecond extends StatelessWidget {
                   const SizedBox(height: 8),
                   Row(
                     children: [
-                      const Text('Low'),
+                      const Text('Type'),
                       const Spacer(),
                       Text(
-                        options.low.toString(),
+                        options.type.toString(),
                         style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -104,10 +104,10 @@ class ItemListSecond extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const Text('Period'),
+                      const Text('Rate Usd'),
                       const Spacer(),
                       Text(
-                        options.period.toString(),
+                        options.rateUsd.toString(),
                         style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -116,19 +116,6 @@ class ItemListSecond extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      const Text('Volume'),
-                      const Spacer(),
-                      Text(
-                        options.volume.toString(),
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
                 ],
               ),
             ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:task_1/secondPage/model.dart';
-import 'package:task_1/secondPage/repository.dart';
+import 'package:task_1/second_page/model.dart';
+import 'package:task_1/second_page/repository.dart';
 
 sealed class OptionsState {}
 
@@ -23,7 +23,7 @@ class OptionsNotifier extends ValueNotifier<OptionsState> {
     try {
       final result = await _fetchOption();
       value = OptionsDataState(result);
-    } catch (e,s) {
+    } catch (e, s) {
       value = OptionsErrorState(e);
     }
   }

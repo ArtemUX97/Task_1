@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_1/firstPage/model.dart';
+import 'package:task_1/first_page/model.dart';
 
 class ItemList extends StatelessWidget {
   final Coin coin;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task_1/first_page/controller.dart';
 import 'package:task_1/second_page/controller.dart';
+
 import 'home_page.dart';
 
 void main() => runApp(
@@ -45,4 +46,3 @@ class MyApp extends StatelessWidget {
 /// но внутри его метода build есть прослушивание отдельного нотифаера, отвечающего за "показать/скрыть иконку"
 /// - подумать, каким образом мы смогли бы обновлять экран через RefreshIndicator
 /// когда список данных пуст
-

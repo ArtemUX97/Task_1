@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'controller.dart';
 import 'item_list.dart';
 
-
 class ScreenSecond extends StatefulWidget {
   const ScreenSecond({super.key});
 

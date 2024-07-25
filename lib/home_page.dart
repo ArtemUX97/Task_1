@@ -43,11 +43,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _openPage (index){
+  void _openPage(index) {
     setState(() {
       _selectedPageIndex = index;
       _pageController.jumpToPage(index);
     });
-}
-
+  }
 }

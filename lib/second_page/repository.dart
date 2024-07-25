@@ -7,7 +7,8 @@ import 'package:task_1/second_page/model.dart';
 class ApiServicesSecond {
   Future<List<Options>> getOptions() async {
     try {
-      var response = await http.get(Uri.parse('http://api.coincap.io/v2/rates'));
+      var response =
+          await http.get(Uri.parse('http://api.coincap.io/v2/rates'));
 
       if (response.statusCode == 200) {
         final option = [

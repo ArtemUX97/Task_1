@@ -23,7 +23,8 @@ class ItemList extends StatelessWidget {
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 16),
+          padding:
+              const EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 16),
           child: Row(
             children: [
               Column(
@@ -47,7 +48,8 @@ class ItemList extends StatelessWidget {
               ),
               const Spacer(),
               Text(
-                double.tryParse(coin.priceUsd ?? 'null')?.toStringAsFixed(2) ?? 'null',
+                double.tryParse(coin.priceUsd ?? 'null')?.toStringAsFixed(2) ??
+                    'null',
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
